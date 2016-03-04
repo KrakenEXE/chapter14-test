@@ -1,0 +1,50 @@
+package application;
+
+import java.net.URL;
+import java.text.NumberFormat;
+import java.util.Random;
+import java.util.ResourceBundle;
+
+import com.sun.prism.Image;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.*;
+import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
+
+public class TossController {
+
+	String result="";
+	
+	@FXML
+	ImageView image;
+	
+	@FXML
+	private Button coinButton;
+	
+	@FXML
+	private TextField carSpeed;
+	
+	@FXML
+	private Label resultLabel;
+	
+	public void initialize(){
+		
+	}
+	
+	public void clickCoin(ActionEvent event){
+		Random rand = new Random(); 
+		int value = rand.nextInt(2);
+		if(value == 0){
+			result = "heads";
+			image.setImage(new Image ("/heads.jpg"));
+		}
+		else{
+			result="tails";
+		}
+		resultLabel.setText(result);
+	}
+	
+}
